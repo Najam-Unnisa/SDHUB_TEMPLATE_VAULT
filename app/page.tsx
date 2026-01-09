@@ -685,7 +685,7 @@ export default function TemplateVault() {
         </aside>
 
         {/* MIDDLE + RIGHT PANELS */}
-        <main className={`${isTemplateListCollapsed ? "w-20" : "flex-1"} p-6 overflow-auto transition-all duration-300 flex flex-col`}>
+        <main className={`${isTemplateListCollapsed ? "w-48" : "flex-1"} p-6 overflow-auto transition-all duration-300 flex flex-col`}>
           {!isTemplateListCollapsed && (
           <div className="mb-4">
             <div className="flex items-center justify-between">
@@ -765,10 +765,10 @@ export default function TemplateVault() {
                     variant="outline"
                     size="sm"
                     onClick={() => handleViewTemplate(t)}
-                    className="p-1 h-auto overflow-hidden"
+                    className="p-1 h-auto overflow-hidden whitespace-normal break-words"
                     title={t.name}
                   >
-                    <div className="text-xs truncate">{t.name.substring(0, 3)}</div>
+                    <div className="text-xs">{t.name}</div>
                   </Button>
                 ))
               )
@@ -1139,7 +1139,7 @@ export default function TemplateVault() {
                   onClick={() => {
                     const shareMessage = `Template: ${shareTemplate.name}\n\n${shareTemplate.content}`
                     const mailtoUrl = `mailto:najamunnisa00@gmail.com?subject=${encodeURIComponent(shareTemplate.name)}&body=${encodeURIComponent(shareMessage)}`
-                    window.location.href = mailtoUrl;
+                    window.open(mailtoUrl, "_blank")
                     toast({ title: "Opening email client..." })
                   }}
                 >
